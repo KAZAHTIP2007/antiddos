@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Host: https://antiddos.technology
+
+Sitemap: https://antiddos.technology/sitemap.xml
