@@ -15,7 +15,13 @@ function setAudioPlayed (el) {
 
 // FIX: Chrome fucking <audio> autoplay feature: https://developers.google.com/web/updates/2017/09/autoplay-policy-changes
 
-var audioCtx = new AudioContext();
+var AudioContext = window.AudioContext // Default
+    || window.webkitAudioContext // Safari and old versions of Chrome
+    || false; 
+
+if (AudioContext) {
+    var audioCtx = new AudioContext();
+}
 
 var __chromeAudioInit = false;
 
