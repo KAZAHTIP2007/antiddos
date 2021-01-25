@@ -79,7 +79,9 @@ document.addEventListener("DOMContentLoaded", () => {
 function checkPlay ()
 {
 	if (document.getElementById('audio_ap').paused) {
-		document.getElementById('wheel1').src = "shizik_play.png";
+		if (document.getElementById('wheel1').src.indexOf('shizik_play') === -1) {
+			document.getElementById('wheel1').src = "shizik_play.png";
+		}
 		document.getElementById('wheel1').className = "";
 		setTimeout(checkPlay, 50);
 	}
