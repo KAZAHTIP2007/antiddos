@@ -62,6 +62,8 @@ function get_random_color()
     return "rgb(" + r() + "," + r() + "," + r() + ")";
 }
 function colorize() {
+	if (document.getElementById('audio_ap').paused) { return; }
+	
 	var last_char = 27;
 	for (var i = 0; i <= last_char; i++) {
 		document.getElementById('char'+i).style.color = get_random_color();
@@ -69,6 +71,27 @@ function colorize() {
 }
 
 setInterval(colorize, 10);
+	
+document.addEventListener("DOMContentLoaded", () => {
+    setTimeout(checkPlay, 500);
+});
+	
+function checkPlay ()
+{
+	if (document.getElementById('audio_ap').paused) {
+		document.getElementById('wheel1').src = "shizik_play.png";
+		document.getElementById('wheel1').className = "";
+		setTimeout(checkPlay, 50);
+	}
+	else {
+		document.getElementById('wheel1').src = "shizik.png";
+		document.getElementById('wheel1').className = "wheel";
+	}
+	
+}
+	
+	
+	
 </script>
 <!-- Yandex.Metrika counter -->
 <script type="text/javascript" >
